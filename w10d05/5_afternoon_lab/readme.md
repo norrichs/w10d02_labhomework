@@ -13,7 +13,7 @@ Based on Today's Lesson you must:
 
 -------
 
-
+**When done run the test_blogs.rb file to test your api (make sure it's running locally on port 3000). Also make sure you have minitest and faraday installed**
 
 
 
