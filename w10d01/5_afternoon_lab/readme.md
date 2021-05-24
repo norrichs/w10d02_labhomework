@@ -18,7 +18,11 @@ You'll be creating a simple game using your new language that takes in user inpu
 
 ## Getting Started
 
-1. Create a new file in your new language for this game.  
+1. In todays lab folder you'll find landscaper.rb with the functions you need and comments to help guide you on which logic belongs in each function.
+
+2. You can run tests using minitest by running the test_landscaper.rb file. Make sure you have minitest installed `gem install minitest`
+
+3. To play the game when your done, run the play.rb file.
 
 ## Landscaper
 
