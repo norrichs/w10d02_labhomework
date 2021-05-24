@@ -4,7 +4,7 @@ require 'minitest/autorun'
 require_relative 'spacebattle'
 
 ## Test Class
-class TestLandscaper < Minitest::Test
+class TestSpacebattle < Minitest::Test
 
     def test_generateHull()
         print("TESTING THE GENERATE HULL FUNCTION")

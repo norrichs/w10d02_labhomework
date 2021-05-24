@@ -4,6 +4,8 @@
 
 You've created full CRUD for Turtles in today's class, and tonight you'll be creating some company for them by creating the following models with full-crud. Make sure to test each one out in postman. All should have name and age just like turtle.
 
+**Note you can run any of the Test files to test your API, make sure you have minitest `gem install minitest` and faraday `gem install faraday` installed so you can run these tests.** 
+
 1. Dogs
 
 2. Cats

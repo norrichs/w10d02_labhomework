@@ -21,6 +21,11 @@ Your game does not have to be elegant. The only thing that matters is that it wo
 <br>
 <hr>
 
+## SETUP
+- You will work out of the spacebattle.rb file, the functions you need to create are scoped with explanations that explain what each function should do.
+- You can run a test to see if your on the right track by running the test_spacebattle.rb file.
+- You can play the game by running the play.rb file.
+
 # &#x1F680; SPECIFICATIONS
 
 #### Build a game of battling alien spaceships .
