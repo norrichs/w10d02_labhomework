@@ -1,4 +1,8 @@
- # Ruby - Environment
+The Instructions below are for installing on Mac, if installing on Linux or Windows use the following:
+- [Install Ruby/Postgres on Windows](https://gorails.com/setup/windows/10)
+- [Install Ruby/Postgres on Ubuntu)(https://gorails.com/setup/ubuntu/20.04)
+
+# Ruby - Environment
 
 ## &#x26A0; Uninstall RVM (Ruby Version Manager)
 
@@ -76,20 +80,20 @@ Either command is fine, you need to choose the version of ruby before `jruby-som
 ## Install Latest Ruby
 **Install the latest version of Ruby**
 
-At the time of updating this readme the current version was 2.7.1 but that will change so install the version before `-dev`. 
+At the time of updating this readme the current version was 3.0.1 but that will change so install the version before `-dev`. 
 
 
 ```sh
-rbenv install 2.7.1
+rbenv install 3.0.1
 ```
 
 * There is no way within rbenv just to get the latest stable version
-* You **must** install Ruby 2.2.2 or greater for Rails 5.
+* You **must** install Ruby 3.0.1 or greater for Rails 6.
 * Install might take a long time -- Terminal could just look like it's hanging
 
 > ruby-build: use readline from homebrew
 >
-> Installed ruby-2.7.1 to /usr/local/var/rbenv/versions/2.7.1
+> Installed ruby-3.0.1 to /usr/local/var/rbenv/versions/2.7.1
 
 ## View Installed Versions of Ruby
 
@@ -111,10 +115,10 @@ rbenv version
 ## Switch rbenv to a different Version of Ruby
 
 ```sh
-rbenv global 2.7.1
+rbenv global 3.0.1
 ```
 
-Check with `rbenv versions`. Asterisk should be next to 2.7.1
+Check with `rbenv versions`. Asterisk should be next to 3.0.1
 
 Tell the computer we've switch versions of ruby and confirm:
 
@@ -128,13 +132,13 @@ rbenv versions
 
 ## Update Environment to use new Ruby
 
-Confirm ruby version _now in use by the system_ is `2.5.3p111` or something similar
+Confirm ruby version _now in use by the system_ is `3.0.1` or something similar
 
 ```sh
 ruby -v
 ```
 
-IF NOT
+**IF NOT**
 
 ```sh
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
@@ -175,9 +179,9 @@ Note:
 - Might need to update the gem manager with `gem update --system`
 
 
-## Install Rails 5.2 beta
+## Install Rails 6
 
-1. Run `gem install rails --pre` to install the rails commands
+1. Run `gem install rails` to install the rails commands
 2. `rbenv rehash`
 3. `rails -v`
 
@@ -199,3 +203,7 @@ Note: if Rails already installed, might need to run `bundle update rails`
 7. Ready to see something cool? Go to `http://localhost:3000`
 
 <img src="https://i.imgur.com/ig6BSe5.png" alt width=400 />
+
+## Install Postgres on Mac
+
+Follow the directions [HERE](https://postgresapp.com/)
