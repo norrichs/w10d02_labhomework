@@ -194,14 +194,12 @@ Note:
 Note: if Rails already installed, might need to run `bundle update rails`
 
 ## Test Rails
-1. Run `rails new blog` to create a new app
+1. Run `rails new blog --api` to create a new app
 2. `cd blog`
 3. Run `rails s` to start the server
-   - If `rails s` throws errors, you need to run `rails webpacker:install`, and then, run `rails s` again.
-   - If `rails webpacker:install` throws errors, you may need to - [download yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable), and then, run `rails webpacker:install` again.
-6. Now, everything should be good. 
+4. Now, everything should be good. 
 <img src="https://i.imgur.com/yvr70Hj.png" alt width=400 />
-7. Ready to see something cool? Go to `http://localhost:3000`
+5. Ready to see something cool? Go to `http://localhost:3000`
 
 <img src="https://i.imgur.com/ig6BSe5.png" alt width=400 />
 
