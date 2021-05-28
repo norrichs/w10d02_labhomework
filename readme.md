@@ -81,7 +81,7 @@ Either command is fine, you need to choose the version of ruby before `jruby-som
 ## Install Latest Ruby
 **Install the latest version of Ruby**
 
-At the time of updating this readme the current version was 3.0.1 but that will change so install the version before `-dev`. 
+At the time of updating this readme the current version was 3.0.1. 
 
 
 ```sh
@@ -94,7 +94,7 @@ rbenv install 3.0.1
 
 > ruby-build: use readline from homebrew
 >
-> Installed ruby-3.0.1 to /usr/local/var/rbenv/versions/2.7.1
+> Installed ruby-3.0.1 to /usr/local/var/rbenv/versions/3.0.1
 
 ## View Installed Versions of Ruby
 
