@@ -18,7 +18,9 @@ $money = 0
 # - return that gets.chomp
 # This function does NOT have a test
 def start()
-
+    puts "Welcome to Capitalist Hellscape 2000\nEnter 1 to upgrade, 2 to mow"
+    sel = gets.chomp
+    return sel
 end
 
 ## selection function should
@@ -26,7 +28,7 @@ end
 # - if user gets.chomp is 2, run the upgrade function
 # - if anything else, text warning
 def selection(select)
-
+    
 end
 
 
