@@ -18,7 +18,7 @@ $money = 0
 # - return that gets.chomp
 # This function does NOT have a test
 def start()
-    puts "Welcome to Capitalist Hellscape 2000\nEnter 1 to upgrade, 2 to mow"
+    puts "Welcome to Capitalist Hellscape 2000\nYou have $#{$money}\nEnter 1 to upgrade, 2 to mow"
     sel = gets.chomp
     return sel
 end
@@ -29,9 +29,9 @@ end
 # - if anything else, text warning
 def selection(select)
     if select.to_i == 1
-        mow()
-    elsif select.to_i == 2
         upgrade()
+    elsif select.to_i == 2
+        mow()
     else
         puts "read the instructions!  1 or 2 only"
     end
@@ -43,7 +43,8 @@ end
 # - should up income based on $current_tool &$tools list
 # - puts message
 def mow()
-
+    $money += $tools[$current_tool][:income]
+    puts "you earned $#{$tools[$current_tool][:income]}\nyou have $#{$money}"
 end
 
 ## upgrade function
