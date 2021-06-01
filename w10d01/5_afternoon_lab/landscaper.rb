@@ -28,7 +28,13 @@ end
 # - if user gets.chomp is 2, run the upgrade function
 # - if anything else, text warning
 def selection(select)
-    
+    if select.to_i == 1
+        mow()
+    elsif select.to_i == 2
+        upgrade()
+    else
+        puts "read the instructions!  1 or 2 only"
+    end
 end
 
 
