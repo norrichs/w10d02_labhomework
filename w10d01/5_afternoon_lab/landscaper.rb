@@ -10,6 +10,7 @@ $tools = [
 ## Game State
 $current_tool = 0
 $money = 0
+$first = true
 
 
 ## start function should
@@ -18,7 +19,12 @@ $money = 0
 # - return that gets.chomp
 # This function does NOT have a test
 def start()
-    puts "Welcome to Capitalist Hellscape 2000\nYou have $#{$money}\nEnter 1 to upgrade, 2 to mow"
+    if $first
+        puts "Welcome to Capitalist Hellscape 2000"
+        $first = false
+    end
+    puts "You have $#{$money} and you're mowing with #{$tools[$current_tool][:name]}
+Enter 1 to mow, 2 to upgrade"
     sel = gets.chomp
     return sel
 end
@@ -28,9 +34,9 @@ end
 # - if user gets.chomp is 2, run the upgrade function
 # - if anything else, text warning
 def selection(select)
-    if select.to_i == 1
+    if select.to_i == 2
         upgrade()
-    elsif select.to_i == 2
+    elsif select.to_i == 1
         mow()
     else
         puts "read the instructions!  1 or 2 only"
@@ -52,6 +58,14 @@ end
 # - if so upgrades tool by incrementing $current_tool and running win_conditions
 # - if not, puts message saying $money isn't enough
 def upgrade()
+    # puts "upgrading ur tool"
+    if $money >= $tools[$current_tool+1][:price]
+        $money -= $tools[$current_tool+1][:price]
+        $current_tool += 1
+        win_conditions()
+    else
+        puts "$#{$money} isn't enought to buy a #{$tools[$current_tool+1][:name]}"
+    end
 
 end
 
@@ -62,7 +76,12 @@ end
 # If true, puts a win message then return true
 # If false, puts the players $money total and tool and run game_loop()
 def win_conditions()
-
+    if $money >= 1000 && $tools[$current_tool][:name] == "Starving Students"
+        puts "you win.  niiiiice."
+        return true
+    else
+        game_loop()
+    end
 end
 
 
