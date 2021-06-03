@@ -1,3 +1,7 @@
-for i in 0...6 do
-	puts i
+$arr = ["diesel","segal"]
+puts $arr
+def test
+	puts $arr.length
 end
+
+test()

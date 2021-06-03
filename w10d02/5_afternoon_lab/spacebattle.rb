@@ -1,15 +1,19 @@
+$names = ["Diesel", "Stallone", "Statham", "Willis", "Van Damme", "Segal", "Li", "Lundgren"]
+
 ## The ship class for creating the ships in the game
 class Ship
 
     ## Set Getters and Setters
-    attr_accessor :hull, :firepower, :accuracy
+    attr_accessor :hull, :firepower, :accuracy, :name
 
     ## Constructor, should create hull, firepower and accuracy properties
-    def initialize(hull, firepower, accuracy)
+    def initialize(hull, firepower, accuracy, name=get_shipname())
         @hull = hull
         @firepower = firepower
         @accuracy = accuracy
+        @name = name
     end
+
 end
 
 ## generateHull should generate a number between 3 & 6
@@ -33,9 +37,16 @@ end
 def enemy_fleet()
     fleet = []
     for i in 0..5
-        fleet[i] = Ship.new(generateHull(), generateFirepower(), generateAccuracy())
+        fleet[i] = Ship.new(generateHull(), generateFirepower(), generateAccuracy(), get_shipname())
     end
     return fleet
+end
+
+## return a random, non duplicating ship name
+def get_shipname()
+    ## get's a random ship name, removing from array
+    
+    return $names.slice!(Random.rand(0...$names.length))
 end
 
 ## accuracy_check should
@@ -58,7 +69,17 @@ end
 def battle(attacker, defender)
     if accuracy_check(attacker.accuracy)
         defender.hull -= attacker.firepower
+        battle_msg = "#{attacker.name} successfully attacks #{defender.name}.  #{defender.name} takes #{attacker.firepower} damage."
+    else
+        battle_msg = "#{attacker.name} whiffs it.  No damage."
     end
+
+    if defender.hull > 0
+        status_msg =  "#{defender.name} hull @ #{defender.hull}"
+    else
+        status_msg = "#{defender.name} is sinking!"
+    end
+    puts("#{battle_msg} #{status_msg}")
     return false
 end
 
@@ -73,28 +94,35 @@ def full_battle(ship, ship2)
     return ship.hull > 0
 end
         
+def print_fleet
+    puts     " NAME       | HULL | FIRE | ACC  "
+    for enemy in $enemies
+        puts "#{enemy.name} | #{enemy.hull}     | #{enemy.firepower}     | #{enemy.accuracy}"
+    end
+end
 
 ## Game Setup
 $enemies = enemy_fleet
-$you = Ship.new(20, 5, 0.7)
+$you = Ship.new(20, 5, 0.7, "Schwarzenegger")
 
 ## Game Loop Function
 def game_loop()
     puts("Welcome to Space Battle, you are on the USS Schwarzenegger and six ships have come to attack")
+    print_fleet()
     # While $enemies still exist in enemy fleet battle the next ship
     while(full_battle($you, $enemies[0]))
         ## remove defeated ship from list
         $enemies.shift
         ## If no $enemies left, you win
-        if ($enemies.length <= 0)
+        if ($enemies.length() <= 0)
             puts("you have defeated the enemy fleet!")
             break
         end
         ## Ask user if they want escape
-        puts("type 'escape' if you want to escape or battle next ship") 
+        puts("type 'escape' if you want to escape or hit enter to battle next ship") 
         if(gets.chomp.to_i == "escape")
             puts("You have escaped")
         end
-        puts("You face the next enemy ship")
+        puts("\nYou face the next enemy ship, #{$enemies[0].name}")
     end
 end
